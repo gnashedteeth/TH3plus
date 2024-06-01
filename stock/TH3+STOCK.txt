@@ -1,0 +1,288 @@
+defaults nosave
+
+###WARNING: NO CUSTOM DEFAULTS FOUND###
+
+# version
+# Betaflight / STM32F411 (S411) 4.4.2 Nov 30 2023 / 01:55:56 (23d066d08) MSP API: 1.45
+###ERROR IN diff: NO CONFIG FOUND###
+# start the command batch
+batch start
+
+# reset configuration to default settings
+defaults nosave
+
+board_name EMAX_TINYHAWKF4SX1280
+manufacturer_id EMAX
+mcu_id 006200674e56500520393855
+signature 
+
+# name: TH III+ HD
+
+# resources
+resource BEEPER 1 C15
+resource MOTOR 1 B10
+resource MOTOR 2 B06
+resource MOTOR 3 B07
+resource MOTOR 4 B08
+resource LED_STRIP 1 A00
+resource SERIAL_TX 1 A09
+resource SERIAL_TX 2 A02
+resource SERIAL_RX 1 A10
+resource SERIAL_RX 2 A03
+resource LED 1 C13
+resource SPI_SCK 1 A05
+resource SPI_SCK 2 B13
+resource SPI_SCK 3 B03
+resource SPI_MISO 1 A06
+resource SPI_MISO 2 B14
+resource SPI_MISO 3 B04
+resource SPI_MOSI 1 A07
+resource SPI_MOSI 2 B15
+resource SPI_MOSI 3 B05
+resource ADC_BATT 1 B00
+resource ADC_CURR 1 B01
+resource OSD_CS 1 B12
+resource RX_SPI_CS 1 A15
+resource RX_SPI_EXTI 1 C14
+resource RX_SPI_BIND 1 B02
+resource RX_SPI_LED 1 B09
+resource GYRO_EXTI 1 A01
+resource GYRO_CS 1 A04
+
+# timer
+timer A03 AF3
+# pin A03: TIM9 CH2 (AF3)
+timer B10 AF1
+# pin B10: TIM2 CH3 (AF1)
+timer B06 AF2
+# pin B06: TIM4 CH1 (AF2)
+timer B07 AF2
+# pin B07: TIM4 CH2 (AF2)
+timer B08 AF2
+# pin B08: TIM4 CH3 (AF2)
+timer A00 AF2
+# pin A00: TIM5 CH1 (AF2)
+timer A02 AF3
+# pin A02: TIM9 CH1 (AF3)
+timer A09 AF1
+# pin A09: TIM1 CH2 (AF1)
+timer A10 AF1
+# pin A10: TIM1 CH3 (AF1)
+
+# dma
+dma ADC 1 0
+# ADC 1: DMA2 Stream 0 Channel 0
+dma pin B10 0
+# pin B10: DMA1 Stream 1 Channel 3
+dma pin B06 0
+# pin B06: DMA1 Stream 0 Channel 2
+dma pin B07 0
+# pin B07: DMA1 Stream 3 Channel 2
+dma pin B08 0
+# pin B08: DMA1 Stream 7 Channel 2
+dma pin A00 0
+# pin A00: DMA1 Stream 2 Channel 6
+dma pin A09 0
+# pin A09: DMA2 Stream 6 Channel 0
+dma pin A10 0
+# pin A10: DMA2 Stream 6 Channel 0
+
+# feature
+feature -RX_SERIAL
+feature OSD
+feature RX_SPI
+
+# serial
+serial 1 131073 115200 57600 0 115200
+
+# beacon
+beacon RX_SET
+
+# map
+map TAER1234
+
+# aux
+aux 0 0 0 1700 2100 0 0
+aux 1 1 1 900 1300 0 0
+aux 2 2 1 1300 1700 0 0
+aux 3 13 3 1700 2100 0 0
+aux 4 35 2 1700 2100 0 0
+
+# vtxtable
+vtxtable bands 5
+vtxtable channels 8
+vtxtable band 1 BOSCAM_A A CUSTOM     0    0    0    0    0    0    0    0
+vtxtable band 2 BOSCAM_B B CUSTOM     0    0    0    0    0    0    0    0
+vtxtable band 3 BOSCAM_E E CUSTOM     0    0    0    0    0    0    0    0
+vtxtable band 4 FATSHARK F CUSTOM     0 5760    0 5800    0    0    0    0
+vtxtable band 5 RACEBAND R CUSTOM  5658 5695 5732 5769 5806 5843 5880 5917
+vtxtable powerlevels 3
+vtxtable powervalues 14 23 0
+vtxtable powerlabels 25 200 0
+
+# master
+set gyro_lpf1_static_hz = 150
+set gyro_lpf2_static_hz = 300
+set dyn_notch_max_hz = 700
+set gyro_lpf1_dyn_min_hz = 150
+set gyro_lpf1_dyn_max_hz = 300
+set acc_lpf_hz = 10
+set acc_trim_pitch = 5
+set acc_calibration = -7,-22,-41,1
+set serialrx_provider = CRSF
+set rx_spi_bus = 3
+set rx_spi_led_inversion = ON
+set dshot_burst = AUTO
+set motor_pwm_protocol = DSHOT300
+set motor_poles = 12
+set vbat_max_cell_voltage = 440
+set current_meter = ADC
+set battery_meter = ADC
+set ibata_scale = 179
+set beeper_inversion = ON
+set beeper_od = OFF
+set small_angle = 180
+set gps_rescue_min_start_dist = 30
+set gps_rescue_ascend_rate = 500
+set gps_rescue_ground_speed = 500
+set gps_rescue_max_angle = 70
+set gps_rescue_descend_rate = 100
+set gps_rescue_throttle_max = 1600
+set gps_rescue_throttle_d = 15
+set gps_rescue_velocity_i = 30
+set gps_rescue_velocity_d = 20
+set pid_process_denom = 1
+set simplified_gyro_filter_multiplier = 60
+set report_cell_voltage = ON
+set osd_warn_bitmask = 575
+set osd_vbat_pos = 528
+set osd_tim_2_pos = 2589
+set osd_flymode_pos = 2563
+set osd_vtx_channel_pos = 3593
+set osd_craft_name_pos = 2516
+set osd_warnings_pos = 2451
+set osd_avg_cell_voltage_pos = 2574
+set osd_stat_bitmask = 420
+set osd_displayport_device = MSP
+set osd_canvas_width = 50
+set osd_canvas_height = 18
+set system_hse_mhz = 8
+set vtx_band = 5
+set vtx_channel = 1
+set vtx_power = 1
+set vtx_freq = 5658
+set vcd_video_system = HD
+set max7456_spi_bus = 2
+set gyro_1_spibus = 1
+set gyro_1_sensor_align = DEFAULT
+set gyro_1_align_yaw = 1800
+set expresslrs_uid = 0,0,0,21,27,31
+set expresslrs_rate_index = 2
+set expresslrs_switch_mode = HYBRID
+set craft_name = TH III+ HD
+
+profile 0
+
+# profile 0
+set dterm_lpf1_dyn_min_hz = 90
+set dterm_lpf1_dyn_max_hz = 180
+set dterm_lpf1_static_hz = 90
+set dterm_lpf2_static_hz = 180
+set vbat_sag_compensation = 100
+set anti_gravity_gain = 90
+set iterm_relax_cutoff = 5
+set pidsum_limit = 1000
+set pidsum_limit_yaw = 1000
+set yaw_lowpass_hz = 125
+set p_pitch = 121
+set i_pitch = 201
+set d_pitch = 116
+set f_pitch = 199
+set p_roll = 136
+set i_roll = 199
+set d_roll = 109
+set f_roll = 191
+set p_yaw = 111
+set i_yaw = 198
+set f_yaw = 191
+set d_min_roll = 95
+set d_min_pitch = 108
+set thrust_linear = 25
+set feedforward_smooth_factor = 0
+set feedforward_jitter_factor = 10
+set feedforward_boost = 5
+set simplified_pids_mode = OFF
+set simplified_master_multiplier = 160
+set simplified_d_gain = 200
+set simplified_pi_gain = 155
+set simplified_dmax_gain = 20
+set simplified_dterm_filter_multiplier = 120
+
+profile 1
+
+# profile 1
+set dterm_lpf1_dyn_min_hz = 90
+set dterm_lpf1_dyn_max_hz = 180
+set dterm_lpf1_static_hz = 90
+set dterm_lpf2_static_hz = 180
+set vbat_sag_compensation = 100
+set anti_gravity_gain = 90
+set iterm_relax_cutoff = 5
+set pidsum_limit = 1000
+set pidsum_limit_yaw = 1000
+set yaw_lowpass_hz = 125
+set p_pitch = 116
+set i_pitch = 208
+set d_pitch = 116
+set f_pitch = 199
+set p_roll = 111
+set i_roll = 198
+set d_roll = 102
+set f_roll = 191
+set p_yaw = 111
+set i_yaw = 198
+set f_yaw = 191
+set d_min_roll = 95
+set d_min_pitch = 108
+set thrust_linear = 25
+set feedforward_smooth_factor = 0
+set feedforward_jitter_factor = 10
+set feedforward_boost = 5
+set simplified_master_multiplier = 160
+set simplified_d_gain = 200
+set simplified_pi_gain = 155
+set simplified_dmax_gain = 20
+set simplified_dterm_filter_multiplier = 120
+
+profile 2
+
+profile 3
+
+# restore original profile selection
+profile 1
+
+rateprofile 0
+
+# rateprofile 0
+set thr_expo = 50
+set rates_type = BETAFLIGHT
+set roll_rc_rate = 86
+set pitch_rc_rate = 85
+set yaw_rc_rate = 85
+set roll_expo = 10
+set pitch_expo = 10
+set yaw_expo = 10
+set roll_srate = 66
+set pitch_srate = 66
+set yaw_srate = 65
+
+rateprofile 1
+
+rateprofile 2
+
+rateprofile 3
+
+# restore original rateprofile selection
+rateprofile 0
+
+# save configuration
